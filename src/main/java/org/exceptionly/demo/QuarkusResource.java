@@ -1,7 +1,6 @@
 package org.exceptionly.demo;
 
-import org.exceptionly.demo.service.QuarkusService;
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
+import org.exceptionly.demo.service.PriceConverter;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -10,16 +9,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/ping")
+@Path("/price")
 public class QuarkusResource {
 
     @Inject
-    QuarkusService service;
+    PriceConverter priceConverter;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Path("/{name}")
-    public String ping(@PathParam String name) {
-        return service.greeting(name);
+    public double price() {
+        return priceConverter.price();
     }
 }

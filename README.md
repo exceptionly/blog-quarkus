@@ -6,6 +6,12 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Running the application in dev mode
 
+First you need to run below commands to start a KAFKA container
+```shell script
+cd src/main/docker
+docker-compose up
+```
+
 You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
